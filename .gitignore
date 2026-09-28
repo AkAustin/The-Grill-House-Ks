@@ -1,0 +1,6 @@
+# Ignore sensitive release package keys and zip archives
+release_package/
+*.pem
+
+# Ignore dist build folder if desired (optional)
+# dist/

@@ -1,0 +1,46 @@
+# =====================================================================
+# Enterprise Security & Confidentiality Directives for Apache / LiteSpeed
+# =====================================================================
+
+# 1. Force HTTPS for Confidentiality in Transit
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# 2. Strict Security Headers
+<IfModule mod_headers.c>
+  # HTTP Strict Transport Security (HSTS)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  
+  # Prevent MIME Sniffing
+  Header always set X-Content-Type-Options "nosniff"
+  
+  # Prevent Clickjacking
+  Header always set X-Frame-Options "SAMEORIGIN"
+  
+  # Control Referrer Information
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  
+  # Restrict Unnecessary Browser Features
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+  
+  # Content Security Policy (CSP)
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';"
+</IfModule>
+
+# 3. Restrict Directory Listing & Protect Sensitive Admin Files
+Options -Indexes
+
+<FilesMatch "^(\.|checksums|MANIFEST|private_key|verify_package)">
+  Require all denied
+</FilesMatch>
+
+# Password or IP restriction note for Admin Portal:
+# <Files "admin.html">
+#   AuthType Basic
+#   AuthName "Admin Access Only"
+#   AuthUserFile /etc/httpd/.htpasswd
+#   Require valid-user
+# </Files>
