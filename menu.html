@@ -44,8 +44,13 @@
   <header class="site-header">
     <div class="wrap">
       <nav class="navbar">
+        <button type="button" id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
         <a href="index.html" class="brand-logo">THE GRILL <span>HOUSE KS</span></a>
-        <div class="nav-links">
+        <div class="nav-links" id="nav-links">
           <a href="index.html">Home</a>
           <a href="menu.html" class="active" aria-current="page">Full Menu</a>
           <a href="reservations.html">Reservations</a>
@@ -204,6 +209,7 @@
   <script src="js/sprinkled-herbs.js"></script>
   <script src="js/reservation-modal.js"></script>
   <script src="js/product-modal.js"></script>
+  <script src="js/mobile-nav.js"></script>
 
   <script>
     // Custom sort helper for full menu page

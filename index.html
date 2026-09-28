@@ -104,8 +104,13 @@
   <header class="site-header">
     <div class="wrap">
       <nav class="navbar">
-        <a href="#" class="brand-logo">THE GRILL <span>HOUSE KS</span></a>
-        <div class="nav-links">
+        <button type="button" id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+        <a href="index.html" class="brand-logo">THE GRILL <span>HOUSE KS</span></a>
+        <div class="nav-links" id="nav-links">
           <a href="index.html" class="active">Home</a>
           <a href="menu.html">Full Menu</a>
           <a href="reservations.html">Reservations</a>
@@ -764,6 +769,7 @@
   <script src="js/sprinkled-herbs.js"></script>
   <script src="js/reservation-modal.js"></script>
   <script src="js/product-modal.js"></script>
+  <script src="js/mobile-nav.js"></script>
   <script src="js/main.js"></script>
 
 </body>
