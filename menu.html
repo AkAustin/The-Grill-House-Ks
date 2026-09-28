@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Explore the full menu at The Grill House KS in Scott City, KS. Hand-cut ribeye steaks, chorizo burritos, all-meat omelettes, smoked BBQ, and breakfast all day!">
+  <title>Full Menu &amp; Specials | The Grill House KS - Scott City, Kansas</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥩</text></svg>">
+
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Segmented CSS Modules -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+
+  <!-- Early Theme Initialization Script -->
+  <script src="js/theme-toggle.js"></script>
+</head>
+<body>
+
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to menu content</a>
+
+  <!-- Top Strip Bar -->
+  <div class="topstrip-bar">
+    <div class="wrap">
+      <div>
+        <span id="live-operating-status" class="topstrip-status status-open">● Open now <span class="topstrip-sep">·</span> Closes at 9:00 PM</span>
+        <span class="topstrip-sep">·</span>Breakfast Served All Day
+      </div>
+      <div>702 E 5th St, Scott City, KS 67871<span class="topstrip-sep">·</span><a class="topstrip-phone" href="tel:+16209092090">(620) 909-2090</a></div>
+    </div>
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="wrap">
+      <nav class="navbar">
+        <a href="index.html" class="brand-logo">THE GRILL <span>HOUSE KS</span></a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="menu.html" class="active" aria-current="page">Full Menu</a>
+          <a href="reservations.html">Reservations</a>
+          <a href="about.html">Our Story</a>
+          <a href="contact.html">Location &amp; Hours</a>
+        </div>
+        <div class="nav-header-actions">
+          <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark theme">
+            <span class="theme-icon">☀️</span>
+            <span class="theme-label">Light</span>
+          </button>
+          <a class="btn btn-wheat" href="reservations.html" style="background-color:var(--color-wheat); color:var(--color-ink); border:none;">Reserve Table</a>
+          <a class="btn btn-barn" href="tel:+16209092090">Call Order</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Header for Menu Page -->
+  <main id="main-content">
+    <section class="page-hero-banner">
+      <div class="wrap">
+        <span class="badge badge-barn" style="font-size: 0.85rem; margin-bottom: 14px; display: inline-block;">SCOTT CITY DINE-IN &amp; TAKEOUT</span>
+        <h1>Full Interactive Menu &amp; Daily Specials</h1>
+        <p>Every dish is prepared fresh in our kitchen using hand-selected Kansas meats, fresh eggs, homemade salsas, and authentic family recipes.</p>
+      </div>
+    </section>
+
+    <!-- Menu Showcase Container -->
+    <section class="section-padding wrap">
+      
+      <!-- Search & Filters Control Bar -->
+      <div style="background-color: var(--color-cream-card); border: 1px solid var(--color-line); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 36px; box-shadow: var(--shadow-card);">
+        <div style="display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; margin-bottom: 20px;">
+          
+          <!-- Search Input -->
+          <div style="position: relative;">
+            <input type="text" id="menu-search-input" placeholder="🔍 Search for steak, chorizo, omelette, tacos, pancakes..." style="width: 100%; padding: 14px 18px; font-size: 1rem; border: 1px solid var(--color-line); border-radius: var(--radius-md); background-color: var(--color-paper); color: var(--color-ink); outline: none;">
+          </div>
+
+          <!-- Price Sort Selector -->
+          <div>
+            <select id="price-sort-select" onchange="sortMenuItems(this.value)" style="padding: 14px 16px; font-size: 0.9rem; font-weight: 600; border: 1px solid var(--color-line); border-radius: var(--radius-md); background-color: var(--color-paper); color: var(--color-ink); cursor: pointer;">
+              <option value="default">Featured Dishes First</option>
+              <option value="low-high">Price: Low to High</option>
+              <option value="high-low">Price: High to Low</option>
+              <option value="name-az">Name: A to Z</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="tab-controls-wrap" style="border-bottom: none; margin-bottom: 0;">
+          <button type="button" class="tab-button active" onclick="filterMenuCategory('all', this)">🍽️ All Dishes</button>
+          <button type="button" class="tab-button" onclick="filterMenuCategory('breakfast', this)">🍳 Breakfast All Day</button>
+          <button type="button" class="tab-button" onclick="filterMenuCategory('steaks', this)">🥩 Hand-Cut Steaks</button>
+          <button type="button" class="tab-button" onclick="filterMenuCategory('mexican', this)">🌮 Mexican Specialties</button>
+          <button type="button" class="tab-button" onclick="filterMenuCategory('american', this)">🍔 Diners &amp; Burgers</button>
+          <button type="button" class="tab-button" onclick="filterMenuCategory('sides', this)">🍟 Sides &amp; Extras</button>
+          <button type="button" class="tab-button" onclick="filterMenuCategory('drinks', this)">☕ Drinks &amp; Shakes</button>
+        </div>
+      </div>
+
+      <!-- Menu Grid -->
+      <div id="menu-grid-container" class="menu-grid-layout">
+        <!-- Rendered dynamically via js/menu-filter.js -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Reservation Modal -->
+  <div class="modal-backdrop" id="reservation-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 style="margin:0;">Reserve a Table</h3>
+        <button class="modal-close-btn" onclick="closeReservationModal()" aria-label="Close reservation modal">&times;</button>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--color-ink-soft); margin-bottom: 20px;">Book a table at The Grill House KS in Scott City. We will call to confirm your table!</p>
+
+      <form id="reservation-form">
+        <div class="form-group">
+          <label class="form-label" for="res-name">Your Full Name</label>
+          <input type="text" id="res-name" class="form-input" placeholder="e.g. John Miller" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="res-phone">Phone Number</label>
+          <input type="tel" id="res-phone" class="form-input" placeholder="(620) 000-0000" required>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+          <div class="form-group">
+            <label class="form-label" for="res-guests">Guests</label>
+            <select id="res-guests" class="form-select">
+              <option value="1">1 Person</option>
+              <option value="2" selected>2 People</option>
+              <option value="3">3 People</option>
+              <option value="4">4 People</option>
+              <option value="5">5 People</option>
+              <option value="6+">6+ (Group)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="res-date">Date</label>
+            <input type="date" id="res-date" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="res-time">Time</label>
+            <input type="time" id="res-time" class="form-input" required>
+          </div>
+        </div>
+        <div style="margin-top: 20px; display: flex; gap: 12px;">
+          <button type="submit" class="btn btn-barn" style="flex:1;">Submit Reservation</button>
+          <button type="button" class="btn btn-ghost" onclick="closeReservationModal()" style="color:var(--color-ink);">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <div class="brand-logo" style="margin-bottom: 12px;">THE GRILL <span>HOUSE KS</span></div>
+        <p>Serving homemade American diner classics, Mexican specialties, and hand-cut steaks in Scott City, Kansas.</p>
+        <p style="margin-top: 12px;">📍 702 E 5th St (Inside Abarrotes La Favorita), Scott City, KS 67871</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="index.html">Home Landing</a></li>
+          <li><a href="menu.html" class="active-footer-link">Full Interactive Menu</a></li>
+          <li><a href="reservations.html">Reserve a Table</a></li>
+          <li><a href="about.html">Our Story &amp; Heritage</a></li>
+          <li><a href="contact.html">Contact &amp; Location</a></li>
+          <li><a href="admin.html" style="text-decoration: underline;">Manager Login 🔒</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Hours &amp; Contact</h4>
+        <p style="margin-bottom: 6px;"><strong>Mon &ndash; Sat:</strong> 6:00 AM &ndash; 9:00 PM</p>
+        <p style="margin-bottom: 16px;"><strong>Sunday:</strong> 7:00 AM &ndash; 8:00 PM</p>
+        <p style="font-size: 1.1rem; font-weight: 800; color: #F4C463;">📞 <a href="tel:+16209092090" style="color: inherit; text-decoration: none;">(620) 909-2090</a></p>
+      </div>
+    </div>
+    
+    <div class="footer-copyright">
+      &copy; 2026 The Grill House KS. All rights reserved. Handcrafted in Scott City, Kansas.
+    </div>
+  </footer>
+
+  <!-- Segmented JavaScript Modules -->
+  <script src="js/menu-data.js"></script>
+  <script src="js/hours.js"></script>
+  <script src="js/menu-filter.js"></script>
+  <script src="js/sprinkled-herbs.js"></script>
+  <script src="js/reservation-modal.js"></script>
+  <script src="js/product-modal.js"></script>
+
+  <script>
+    // Custom sort helper for full menu page
+    function sortMenuItems(sortType) {
+      const container = document.getElementById('menu-grid-container');
+      if (!container || typeof MENU_DATA === 'undefined') return;
+
+      let items = [...MENU_DATA];
+      if (typeof currentActiveCategory !== 'undefined' && currentActiveCategory !== 'all') {
+        items = items.filter(item => item.category === currentActiveCategory);
+      }
+
+      const parsePrice = (priceStr) => parseFloat((priceStr || '0').replace(/[^0-9.]/g, '')) || 0;
+
+      if (sortType === 'low-high') {
+        items.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
+      } else if (sortType === 'high-low') {
+        items.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
+      } else if (sortType === 'name-az') {
+        items.sort((a, b) => a.name.localeCompare(b.name));
+      }
+
+      renderMenuItems(items, container);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof getMenuData === 'function') {
+        window.MENU_DATA = getMenuData();
+      }
+      const container = document.getElementById('menu-grid-container');
+      if (container && typeof MENU_DATA !== 'undefined') {
+        renderMenuItems(MENU_DATA, container);
+      }
+    });
+  </script>
+
+  <!-- Interactive Dish Product Detail Modal / Landing View -->
+  <div class="product-modal-backdrop" id="product-detail-modal" aria-hidden="true" role="dialog">
+    <!-- Rising & Spreading Grill Smoke Whisks Overlay -->
+    <div class="product-modal-smoke-overlay" aria-hidden="true">
+      <div class="smoke-stream smoke-stream-left">
+        <div class="smoke-puff p1"></div>
+        <div class="smoke-puff p2"></div>
+        <div class="smoke-puff p3"></div>
+        <div class="smoke-puff p4"></div>
+      </div>
+      <div class="smoke-stream smoke-stream-right">
+        <div class="smoke-puff p1"></div>
+        <div class="smoke-puff p2"></div>
+        <div class="smoke-puff p3"></div>
+        <div class="smoke-puff p4"></div>
+      </div>
+    </div>
+
+    <div class="product-modal-box">
+      <button class="product-modal-close-btn" id="product-modal-close" aria-label="Close product details">&times;</button>
+      
+      <div class="product-modal-grid">
+        <!-- Dish Media / Hero Column -->
+        <div class="product-modal-media">
+          <img id="pm-image" src="" alt="Dish image" class="product-modal-img">
+          <span id="pm-badge" class="badge badge-barn product-modal-badge"></span>
+        </div>
+        
+        <!-- Dish Product Info Column -->
+        <div class="product-modal-content">
+          <div class="product-modal-header">
+            <span id="pm-category" class="product-modal-cat-tag"></span>
+            <h2 id="pm-title" class="product-modal-title"></h2>
+            <div id="pm-price" class="product-modal-price"></div>
+          </div>
+          
+          <p id="pm-description" class="product-modal-desc"></p>
+
+          <!-- Preparation & Caloric Info Bar -->
+          <div class="product-specs-bar">
+            <div class="product-spec-item">
+              <span class="product-spec-label">Caloric Est.</span>
+              <span id="pm-calories" class="product-spec-val"></span>
+            </div>
+            <div class="product-spec-item">
+              <span class="product-spec-label">Kitchen Prep</span>
+              <span id="pm-prep" class="product-spec-val"></span>
+            </div>
+          </div>
+
+          <!-- Ingredients Used Section -->
+          <div class="product-section-block">
+            <h4 class="product-section-heading">🌿 Fresh Ingredients Used</h4>
+            <div id="pm-ingredients" class="product-ingredients-list"></div>
+          </div>
+
+          <!-- Dietary & Allergen Badges -->
+          <div class="product-section-block">
+            <h4 class="product-section-heading">🏷️ Dietary Profile</h4>
+            <div id="pm-dietary" class="product-dietary-list"></div>
+          </div>
+
+          <!-- Action CTAs -->
+          <div class="product-modal-actions">
+            <a id="pm-call-btn" class="btn btn-barn" href="tel:+16209092090"><span>📞</span> Call to Order</a>
+            <button id="pm-reserve-btn" class="btn btn-primary" type="button"><span>📅</span> Reserve Table</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

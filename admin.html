@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Admin Manager Control Portal for The Grill House KS - Scott City, Kansas. Easily manage menu dishes, ingredients, reviews, and website settings.">
+  <title>Admin Dashboard | The Grill House KS</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥩</text></svg>">
+
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Segmented CSS Modules -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/admin.css">
+
+  <!-- Early Theme Initialization Script (Prevents FOUC) -->
+  <script src="js/theme-toggle.js"></script>
+</head>
+<body>
+
+  <!-- Admin Auth Security Gate Overlay -->
+  <div id="admin-auth-overlay" class="admin-auth-overlay" style="display: none;">
+    <div class="admin-auth-card">
+      <div class="admin-auth-icon">🔒</div>
+      <h2>Manager Control Access</h2>
+      <p>Please enter the management security PIN to access <strong>The Grill House KS</strong> administration panel.</p>
+      
+      <form id="admin-auth-form" onsubmit="handleAdminAuthSubmit(event)">
+        <input type="password" id="admin-pin-input" class="admin-auth-input" placeholder="••••" maxlength="8" required autocomplete="current-password">
+        <div id="admin-auth-error" class="admin-auth-error">Incorrect PIN code. Please try again.</div>
+        <div class="admin-auth-hint">💡 Default PIN code: <strong>1234</strong></div>
+        <button type="submit" class="btn btn-barn" style="width: 100%; font-size: 1rem; padding: 12px;">Unlock Admin Dashboard</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Top Strip Bar -->
+  <div class="topstrip-bar">
+    <div class="wrap" style="justify-content: space-between; display: flex; align-items: center;">
+      <div>
+        <span class="badge badge-barn" style="font-size:0.75rem;">ADMIN PORTAL</span>
+        <span class="topstrip-sep">·</span> The Grill House KS Manager Control System
+      </div>
+      <div>
+        <a href="index.html" class="topstrip-phone" style="border-bottom:none; text-decoration:underline;">← Back to Main Website</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="wrap">
+      <nav class="navbar">
+        <a href="index.html" class="brand-logo">THE GRILL <span>HOUSE KS</span></a>
+        <div class="nav-header-actions">
+          <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark theme">
+            <span class="theme-icon">☀️</span>
+            <span class="theme-label">Light</span>
+          </button>
+          <button type="button" class="btn btn-ghost" onclick="lockAdminDashboard()" style="padding: 6px 12px; font-size: 0.85rem;" title="Lock Admin Portal">🔒 Lock Portal</button>
+          <a class="btn btn-wheat" href="index.html" style="background-color:var(--color-wheat); color:var(--color-ink); border:none;">View Live Site</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Admin Header Banner -->
+  <div class="admin-header-banner">
+    <div class="wrap admin-header-flex">
+      <div class="admin-title-group">
+        <h1>Store &amp; Menu Manager Portal</h1>
+        <p class="admin-subtitle">Add new dishes, update ingredients, edit prices, or manage customer reviews in real time.</p>
+      </div>
+      <div>
+        <button type="button" class="btn btn-barn" onclick="resetDishForm()">➕ Add New Dish</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Wrap -->
+  <main class="wrap" style="padding-top: 24px; padding-bottom: 60px;">
+    
+    <!-- Tab Switcher Navigation -->
+    <div class="admin-tabs-nav">
+      <button type="button" class="admin-tab-btn active" data-tab="dishes">🍽️ Manage Menu Dishes</button>
+      <button type="button" class="admin-tab-btn" data-tab="reviews">⭐ Customer Reviews</button>
+      <button type="button" class="admin-tab-btn" data-tab="settings">⚙️ Site Settings &amp; Data Backup</button>
+    </div>
+
+    <!-- TAB 1: DISHES MANAGEMENT -->
+    <div id="tab-dishes" class="admin-tab-content" style="display: block;">
+      <div class="admin-layout-grid">
+        
+        <!-- Dish List Table Column -->
+        <div>
+          <div class="admin-card-box">
+            <div class="admin-card-title">
+              <span>Current Website Menu Items</span>
+              <span class="badge" style="font-size:0.75rem;">Live Sync Active</span>
+            </div>
+            <p style="font-size:0.8rem; color:var(--color-ink-soft); margin-top: -8px; margin-bottom:16px;">💡 Click any dish row to inspect details in locked mode. Click "✏️ Edit" to unlock and edit.</p>
+            
+            <div style="overflow-x: auto;">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Photo</th>
+                    <th>Dish Title &amp; Description</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-dishes-list">
+                  <!-- Dynamically populated by js/admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add / Edit Dish Form Column -->
+        <div>
+          <div class="admin-card-box" id="dish-form-card">
+            <h3 class="admin-card-title" id="form-dish-title">Add New Dish</h3>
+            
+            <div id="form-lock-status" class="lock-status-banner is-new">
+              <span id="lock-status-text">🔓 Unlocked &mdash; Creating New Dish</span>
+              <button type="button" id="unlock-dish-btn" class="btn btn-wheat btn-icon" onclick="unlockDishForm()" style="display:none;">✏️ Unlock &amp; Edit</button>
+            </div>
+
+            <form id="admin-dish-form">
+              <div class="admin-form-group">
+                <label class="admin-label" for="dish-name">Dish Name *</label>
+                <input type="text" id="dish-name" class="admin-input" placeholder="e.g. Scott City Double Cheeseburger" required>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div class="admin-form-group">
+                  <label class="admin-label" for="dish-category">Category *</label>
+                  <select id="dish-category" class="admin-select">
+                    <option value="breakfast">Breakfast All Day</option>
+                    <option value="mexican">Mexican Favorites</option>
+                    <option value="american">American Diners</option>
+                    <option value="steaks">Steaks &amp; Dinners</option>
+                  </select>
+                </div>
+                <div class="admin-form-group">
+                  <label class="admin-label" for="dish-price">Price *</label>
+                  <input type="text" id="dish-price" class="admin-input" placeholder="$12.95" required>
+                </div>
+              </div>
+
+              <div class="admin-form-group">
+                <label class="admin-label" for="dish-description">Description *</label>
+                <textarea id="dish-description" class="admin-textarea" rows="3" placeholder="Brief description of the dish for customers..." required></textarea>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div class="admin-form-group">
+                  <label class="admin-label" for="dish-badge">Badge / Overlay Tag</label>
+                  <input type="text" id="dish-badge" class="admin-input" placeholder="e.g. Kitchen Special">
+                </div>
+                <div class="admin-form-group">
+                  <label class="admin-label" for="dish-calories">Caloric Est.</label>
+                  <input type="text" id="dish-calories" class="admin-input" placeholder="~750 kcal">
+                </div>
+              </div>
+
+              <!-- Photo Image: File Upload OR URL/Path -->
+              <div class="admin-form-group">
+                <label class="admin-label">Photo Image (Upload File or Paste Link)</label>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <input type="file" id="dish-file-input" class="admin-input" accept="image/*">
+                  <input type="text" id="dish-image" class="admin-input" placeholder="OR paste image path e.g. images/handcut-ribeye.jpg">
+                </div>
+                <div id="image-preview-container" style="margin-top: 8px; display: none;">
+                  <img id="dish-image-preview" src="" alt="Dish preview" style="max-height: 80px; border-radius: 6px; border: 1px solid var(--color-line); object-fit: cover;">
+                </div>
+              </div>
+
+              <div class="admin-form-group">
+                <label class="admin-label" for="dish-prep">Kitchen Preparation Note</label>
+                <input type="text" id="dish-prep" class="admin-input" placeholder="Flame-grilled to order on open fire">
+              </div>
+
+              <!-- Ingredients Chip Creator -->
+              <div class="admin-form-group">
+                <label class="admin-label">🌿 Fresh Ingredients Used (Type &amp; press Enter)</label>
+                <div class="chips-field-wrap">
+                  <div id="ingredients-chips-list" style="display:flex; flex-wrap:wrap; gap:6px;"></div>
+                  <input type="text" id="ingredient-chip-input" class="chip-input-field" placeholder="Add ingredient + Enter...">
+                </div>
+              </div>
+
+              <!-- Dietary Tags Chip Creator -->
+              <div class="admin-form-group">
+                <label class="admin-label">🏷️ Dietary Tags (Type &amp; press Enter)</label>
+                <div class="chips-field-wrap">
+                  <div id="dietary-chips-list" style="display:flex; flex-wrap:wrap; gap:6px;"></div>
+                  <input type="text" id="dietary-chip-input" class="chip-input-field" placeholder="Add tag + Enter...">
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button type="submit" id="save-dish-btn" class="btn btn-barn" style="flex:1;">Save New Dish</button>
+                <button type="button" class="btn btn-ghost" onclick="resetDishForm()" style="color:var(--color-ink); border-color:var(--color-line);">Clear / New</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB 2: REVIEWS MANAGEMENT -->
+    <div id="tab-reviews" class="admin-tab-content" style="display: none;">
+      <div class="admin-layout-grid">
+        
+        <div>
+          <!-- Pending Customer Submissions Queue -->
+          <div class="admin-card-box" style="border-color: var(--color-wheat); background-color: rgba(217,164,65,0.05);">
+            <div class="admin-card-title">
+              <span>⏳ Pending Customer Reviews (Awaiting Approval)</span>
+              <span id="pending-count-badge" class="badge badge-barn" style="font-size:0.75rem;">0 Pending</span>
+            </div>
+            <p style="font-size:0.85rem; color:var(--color-ink-soft); margin-top:-8px; margin-bottom:16px;">Review customer feedback submitted directly from the website. Approve to publish to the main site or Reject to discard.</p>
+            
+            <div style="overflow-x: auto;">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Customer</th>
+                    <th>Rating &amp; Dish</th>
+                    <th>Feedback Quote</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-pending-reviews-list">
+                  <!-- Dynamically populated by js/admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Published Reviews List -->
+          <div class="admin-card-box">
+            <h3 class="admin-card-title">Published Verified Customer Reviews</h3>
+            <div style="overflow-x: auto;">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Reviewer</th>
+                    <th>Rating</th>
+                    <th>Quote / Feedback</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-reviews-list">
+                  <!-- Dynamically populated by js/admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="admin-card-box">
+            <h3 class="admin-card-title">Add New Customer Review</h3>
+            <form id="admin-review-form">
+              <div class="admin-form-group">
+                <label class="admin-label" for="rev-author">Customer Name *</label>
+                <input type="text" id="rev-author" class="admin-input" placeholder="e.g. Sarah M." required>
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-label" for="rev-role">Role / Source Tag</label>
+                <input type="text" id="rev-role" class="admin-input" placeholder="Google Local Guide · Scott City Resident">
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div class="admin-form-group">
+                  <label class="admin-label" for="rev-rating">Star Rating</label>
+                  <select id="rev-rating" class="admin-select">
+                    <option value="★★★★★" selected>★★★★★ (5 Stars)</option>
+                    <option value="★★★★☆">★★★★☆ (4 Stars)</option>
+                  </select>
+                </div>
+                <div class="admin-form-group">
+                  <label class="admin-label" for="rev-dish">Praised Dish</label>
+                  <input type="text" id="rev-dish" class="admin-input" placeholder="Ribeye Steak">
+                </div>
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-label" for="rev-quote">Customer Quote *</label>
+                <textarea id="rev-quote" class="admin-textarea" rows="3" placeholder="Write customer feedback quote here..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-barn" style="width: 100%;">Publish Review</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB 3: SETTINGS & BACKUP -->
+    <div id="tab-settings" class="admin-tab-content" style="display: none;">
+      <div style="max-width: 720px; margin: 0 auto;">
+        
+        <div class="admin-card-box">
+          <h3 class="admin-card-title">Website Settings &amp; Info Bar</h3>
+          <form onsubmit="saveAdminSettings(event)">
+            <div class="admin-form-group">
+              <label class="admin-label" for="settings-phone">Restaurant Telephone</label>
+              <input type="text" id="settings-phone" class="admin-input" value="(620) 909-2090">
+            </div>
+            <div class="admin-form-group">
+              <label class="admin-label" for="settings-notice">Hero Announcement Notice</label>
+              <input type="text" id="settings-notice" class="admin-input" value="OPEN TODAY · DINE-IN & TAKEAWAY">
+            </div>
+            <button type="submit" class="btn btn-barn">Save Settings</button>
+          </form>
+        </div>
+
+        <div class="admin-card-box">
+          <h3 class="admin-card-title">📥 JSON Data Backup &amp; Export</h3>
+          <p style="font-size:0.9rem; color:var(--color-ink-soft);">Download your current dish menu or customer reviews as structured `.json` files for offline backup or code repository updates.</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px;">
+            <button type="button" class="btn btn-wheat" onclick="exportDataJSON('menu')">Download menu-data.json</button>
+            <button type="button" class="btn btn-wheat" onclick="exportDataJSON('reviews')">Download reviews-data.json</button>
+          </div>
+        </div>
+
+        <div class="admin-card-box" style="border-color: var(--color-barn);">
+          <h3 class="admin-card-title" style="color: var(--color-barn);">⚠️ Factory Reset Danger Zone</h3>
+          <p style="font-size:0.9rem; color:var(--color-ink-soft);">Restore the website's original 13 default dishes, customer reviews, and operational settings.</p>
+          <button type="button" class="btn btn-barn" onclick="confirmFactoryReset()">🔄 Restore Factory Defaults</button>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Centered Delete Confirmation Warning Modal -->
+  <div class="modal-backdrop" id="delete-confirm-modal" style="display:none; z-index: 300000; align-items:center; justify-content:center;">
+    <div class="modal-box" style="max-width: 440px; text-align: center; padding: 32px 28px; border: 2px solid var(--color-barn);">
+      <div style="font-size: 3.2rem; margin-bottom: 12px; line-height: 1;">⚠️</div>
+      <h3 id="delete-confirm-title" style="font-size: 1.35rem; margin-bottom: 8px; color: var(--color-ink); font-weight:800;">Are you sure?</h3>
+      <p id="delete-confirm-message" style="font-size: 0.92rem; color: var(--color-ink-soft); margin-bottom: 24px; line-height: 1.5;"></p>
+      <div style="display: flex; gap: 12px; justify-content: center;">
+        <button type="button" id="confirm-delete-yes" class="btn btn-barn" style="flex:1;">YES, Delete</button>
+        <button type="button" id="confirm-delete-no" class="btn btn-ghost" style="flex:1; color:var(--color-ink); border-color:var(--color-line);">NO, Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Segmented JavaScript Modules -->
+  <script src="js/menu-data.js"></script>
+  <script src="js/reviews-data.js"></script>
+  <script src="js/admin.js"></script>
+
+</body>
+</html>

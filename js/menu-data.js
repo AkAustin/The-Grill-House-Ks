@@ -1,0 +1,379 @@
+/* ==========================================
+   THE GRILL HOUSE KS - MENU DATASET WITH INGREDIENT BREAKDOWNS
+   ========================================== */
+const DEFAULT_MENU_DATA = [
+  /* Breakfast All Day */
+  {
+    id: "b1",
+    name: "Chorizo Potato Burrito",
+    category: "breakfast",
+    price: "$11.50",
+    description: "Spiced chorizo, seasoned potatoes, fluffy scrambled eggs, wrapped in a warm flour tortilla.",
+    badge: "Breakfast Favorite",
+    featured: true,
+    image: "images/chorizo-burrito.jpg",
+    ingredients: [
+      "House Spiced Pork Chorizo",
+      "Seasoned Diced Hash Potatoes",
+      "Farm-Fresh Scrambled Eggs",
+      "Melted Jack & Cheddar Cheese",
+      "Warm Flour Tortilla",
+      "Fresh House Salsa"
+    ],
+    dietary: ["High Protein", "Spicy Note", "Contains Dairy", "Contains Gluten"],
+    prepInfo: "Grilled to order on flat top grill; wrapped hot and served with red salsa.",
+    calories: "~780 kcal"
+  },
+  {
+    id: "b2",
+    name: "All-Meat Omelette",
+    category: "breakfast",
+    price: "$13.95",
+    description: "Loaded with bacon, ham, sausage, and cheddar cheese. Served with crispy hash browns & toast.",
+    badge: "Kitchen Classic",
+    featured: true,
+    image: "images/all-meat-omelette.jpg",
+    ingredients: [
+      "3 Large Grade-A Eggs",
+      "Hickory Smoked Bacon Bits",
+      "Diced Pit Ham",
+      "Country Breakfast Sausage",
+      "Shredded Sharp Cheddar",
+      "Crispy Shredded Hash Browns",
+      "Butter-Toasted Bread"
+    ],
+    dietary: ["High Protein", "Keto Friendly Option", "Contains Dairy"],
+    prepInfo: "3-egg skillet folded with generous meat blend and melted cheese.",
+    calories: "~890 kcal"
+  },
+  {
+    id: "b3",
+    name: "Classic Pancake Stack",
+    category: "breakfast",
+    price: "$9.25",
+    description: "Three golden buttermilk pancakes served with whipped butter and warm maple syrup.",
+    badge: "All-Day Classic",
+    featured: false,
+    image: "images/classic-pancakes.jpg",
+    ingredients: [
+      "House Buttermilk Batter",
+      "Real Cream Whipped Butter",
+      "Warm Pure Maple Syrup Blend",
+      "Vanilla & Cinnamon Spice"
+    ],
+    dietary: ["Vegetarian", "Contains Dairy", "Contains Gluten"],
+    prepInfo: "Poured fresh on griddle until golden brown and fluffy.",
+    calories: "~620 kcal"
+  },
+  {
+    id: "b4",
+    name: "Country Skillet",
+    category: "breakfast",
+    price: "$12.50",
+    description: "Crispy hash browns topped with rich sausage cream gravy, two eggs cooked to order, and melted cheese.",
+    badge: "Staff Choice",
+    featured: false,
+    image: "images/country-skillet.jpg",
+    ingredients: [
+      "Crispy Seasoned Hash Browns",
+      "Homemade Country Sausage Gravy",
+      "2 Eggs (Any Style)",
+      "Melted Cheddar & Jack Cheese",
+      "Green Onion Garnish"
+    ],
+    dietary: ["Comfort Food", "High Protein", "Contains Dairy"],
+    prepInfo: "Layered hot in cast iron skillet and smothered in fresh cream gravy.",
+    calories: "~840 kcal"
+  },
+  {
+    id: "b5",
+    name: "Bacon & Eggs Plate",
+    category: "breakfast",
+    price: "$10.95",
+    description: "Three eggs any style, hickory-smoked bacon strips, hash browns, and toasted bread.",
+    badge: "Traditional",
+    featured: false,
+    image: "images/bacon-and-eggs.jpg",
+    ingredients: [
+      "3 Eggs Cooked to Order",
+      "4 Thick-Cut Bacon Strips",
+      "Golden Hash Browns",
+      "Toasted White or Wheat Bread"
+    ],
+    dietary: ["Classic Diner", "High Protein", "Nut-Free"],
+    prepInfo: "Cooked fresh on order; served hot with crispy bacon strips.",
+    calories: "~690 kcal"
+  },
+
+  /* Mexican Favorites */
+  {
+    id: "m1",
+    name: "Carne Asada Tacos (3)",
+    category: "mexican",
+    price: "$12.95",
+    description: "Grilled steak on warm corn tortillas topped with fresh cilantro, chopped onions, and house salsa.",
+    badge: "Top Seller",
+    featured: true,
+    image: "images/carne-asada-tacos.jpg",
+    ingredients: [
+      "Marinated Flame-Grilled Steak",
+      "3 Double Corn Tortillas",
+      "Fresh Chopped Cilantro",
+      "Diced White Onions",
+      "Lime Wedges",
+      "Authentic Roasted Red Salsa"
+    ],
+    dietary: ["Gluten-Free", "High Protein", "Nut-Free"],
+    prepInfo: "Marinated in citrus & spices, grilled over high heat, chopped fresh per order.",
+    calories: "~640 kcal"
+  },
+  {
+    id: "m2",
+    name: "Chicken Fajita Plate",
+    category: "mexican",
+    price: "$15.50",
+    description: "Sizzling chicken strips with bell peppers and onions. Served with rice, refried beans, and tortillas.",
+    badge: "Sizzling Specialty",
+    featured: false,
+    image: "images/chicken-fajitas.jpg",
+    ingredients: [
+      "Marinated Chicken Breast Strips",
+      "Sautéed Bell Peppers & Sweet Onions",
+      "Traditional Spanish Rice",
+      "Pinto Refried Beans",
+      "Warm Flour or Corn Tortillas",
+      "Sour Cream & Salsa"
+    ],
+    dietary: ["Sizzling Plate", "High Protein", "Contains Dairy"],
+    prepInfo: "Served piping hot on a sizzling cast iron skillet.",
+    calories: "~820 kcal"
+  },
+  {
+    id: "m3",
+    name: "Authentic Enchiladas",
+    category: "mexican",
+    price: "$13.50",
+    description: "Three rolled corn tortillas stuffed with chicken or beef, covered in rich red sauce and melted cheese.",
+    badge: "House Red Sauce",
+    featured: false,
+    image: "images/enchiladas.jpg",
+    ingredients: [
+      "Shredded Chicken Breast or Seasoned Beef",
+      "3 Rolled Corn Tortillas",
+      "House Guajillo Enchilada Sauce",
+      "Melted Blend of Mexican Cheeses",
+      "Mexican Rice & Beans"
+    ],
+    dietary: ["Traditional Recipe", "Gluten-Free Option", "Contains Dairy"],
+    prepInfo: "Baked hot until cheese melts golden and sauce bubble softly.",
+    calories: "~760 kcal"
+  },
+  {
+    id: "m4",
+    name: "Breakfast Quesadilla",
+    category: "mexican",
+    price: "$11.95",
+    description: "Warm flour tortilla stuffed with scrambled eggs, chorizo, and melted Jack cheese with salsa.",
+    badge: "Mexican-Diner Fusion",
+    featured: false,
+    image: "images/breakfast-quesadilla.jpg",
+    ingredients: [
+      "Large Grilled Flour Tortilla",
+      "Scrambled Farm Eggs",
+      "Spiced Mexican Pork Chorizo",
+      "Melted Monterey Jack Cheese",
+      "Side Jalapeño Salsa"
+    ],
+    dietary: ["Fusion Flavor", "Spicy Note", "Contains Dairy"],
+    prepInfo: "Grilled crisp on buttered flat top; sliced into wedges.",
+    calories: "~740 kcal"
+  },
+
+  /* American Diners */
+  {
+    id: "a1",
+    name: "Classic Grill Cheeseburger",
+    category: "american",
+    price: "$11.25",
+    description: "Half-pound beef patty on a toasted bun with lettuce, tomato, onion, pickles, and crisp french fries.",
+    badge: "Diner Classic",
+    featured: false,
+    image: "images/classic-cheeseburger.jpg",
+    ingredients: [
+      "1/2 lb Fresh Ground Beef Patty",
+      "Melted American Cheese",
+      "Crisp Iceberg Lettuce & Slice Tomato",
+      "Diced Onions & Dill Pickles",
+      "Toasted Brioche Bun",
+      "Seasoned Crisp French Fries"
+    ],
+    dietary: ["Hand-Pressed Patty", "Contains Dairy", "Contains Gluten"],
+    prepInfo: "Flame-grilled to juicy medium-well with toasted buttered bun.",
+    calories: "~920 kcal"
+  },
+  {
+    id: "a2",
+    name: "Chicken Fried Steak",
+    category: "american",
+    price: "$14.95",
+    description: "Tender beef steak fried crisp, smothered in rich country cream gravy, served with mashed potatoes.",
+    badge: "Comfort Food",
+    featured: true,
+    image: "images/chicken-fried-steak.jpg",
+    ingredients: [
+      "Tenderized Beef Cutlet",
+      "Crispy Seasoned Breading",
+      "House Peppered Country Gravy",
+      "Creamy Mashed Potatoes",
+      "Butter Steamed Corn or Beans",
+      "Warm Dinner Roll"
+    ],
+    dietary: ["Kansas Comfort Classic", "Contains Dairy", "Contains Gluten"],
+    prepInfo: "Hand-breaded per order and golden fried; ladled with gravy.",
+    calories: "~980 kcal"
+  },
+
+  /* Steaks & Dinners */
+  {
+    id: "s1",
+    name: "Hand-Cut 12oz Ribeye",
+    category: "steaks",
+    price: "$22.95",
+    description: "Hand-selected ribeye steak grilled over open flame, served with choice of two sides and dinner roll.",
+    badge: "Most Mentioned Dish",
+    featured: true,
+    image: "images/handcut-ribeye.jpg",
+    ingredients: [
+      "12oz USDA Choice Ribeye Cut",
+      "House Garlic & Herb Steak Seasoning",
+      "Herb Compound Butter Melt",
+      "Choice of Baked Potato or Fries",
+      "Side Garden Salad or Steamed Veggies",
+      "Fresh Baked Dinner Roll"
+    ],
+    dietary: ["High Protein", "Gluten-Free Option", "Flame-Grilled"],
+    prepInfo: "Cut in-house daily; seared on open-flame grill to exact desired temp.",
+    calories: "~880 kcal"
+  },
+  {
+    id: "s2",
+    name: "Grilled Chicken Breast Dinner",
+    category: "steaks",
+    price: "$14.25",
+    description: "Marinated chicken breast served with steamed vegetables, spanish rice, and warm dinner roll.",
+    badge: "Flame Grilled",
+    featured: false,
+    image: "images/grilled-chicken-dinner.jpg",
+    ingredients: [
+      "2 Marinated Boneless Chicken Breasts",
+      "Citrus Herb Marinade",
+      "Steamed Broccoli & Carrot Medley",
+      "Seasoned Rice Pilaf",
+      "Fresh Dinner Roll"
+    ],
+    dietary: ["Lean & Healthy", "High Protein", "Low Fat Option"],
+    prepInfo: "Charbroiled juicy over high heat; finished with fresh herbs.",
+    calories: "~580 kcal"
+  },
+
+  /* Sides & Extras */
+  {
+    id: "sd1",
+    name: "Crispy Golden Hash Browns",
+    category: "sides",
+    price: "$4.50",
+    description: "Shredded potato hash browns griddled golden and crispy with butter seasoning.",
+    badge: "Side Classic",
+    featured: false,
+    image: "images/all-meat-omelette.jpg",
+    ingredients: ["Fresh Shredded Potatoes", "Butter Seasoning", "Sea Salt & Black Pepper"],
+    dietary: ["Vegetarian", "Gluten-Free Option"],
+    prepInfo: "Griddled flat-top until golden crisp.",
+    calories: "~320 kcal"
+  },
+  {
+    id: "sd2",
+    name: "Guacamole & Warm Chips",
+    category: "sides",
+    price: "$6.95",
+    description: "Freshly mashed avocados blended with cilantro, lime juice, tomatoes, and salted tortilla chips.",
+    badge: "Made Fresh Daily",
+    featured: false,
+    image: "images/carne-asada-tacos.jpg",
+    ingredients: ["Hass Avocados", "Cilantro & Lime", "Diced Tomatoes", "Crisp Corn Tortilla Chips"],
+    dietary: ["Vegan", "Gluten-Free", "Fresh Recipe"],
+    prepInfo: "Mashed fresh every morning.",
+    calories: "~440 kcal"
+  },
+
+  /* Drinks & Beverages */
+  {
+    id: "dr1",
+    name: "Freshly Brewed Kansas Coffee",
+    category: "drinks",
+    price: "$2.75",
+    description: "Rich medium-roast house coffee brewed hot with complimentary table refills.",
+    badge: "Free Refills",
+    featured: false,
+    image: "images/classic-pancakes.jpg",
+    ingredients: ["100% Arabica Medium Roast Coffee Beans", "Filtered Water"],
+    dietary: ["Zero Calorie Black Option", "Gluten-Free"],
+    prepInfo: "Brewed fresh hourly.",
+    calories: "~5 kcal"
+  },
+  {
+    id: "dr2",
+    name: "Homemade Horchata de Arroz",
+    category: "drinks",
+    price: "$3.95",
+    description: "Traditional sweet cinnamon rice milk crafted fresh daily in-house.",
+    badge: "House Specialty",
+    featured: false,
+    image: "images/chorizo-burrito.jpg",
+    ingredients: ["Long Grain Rice Milk", "Ceylon Cinnamon", "Vanilla Extract", "Cane Sugar"],
+    dietary: ["Sweet Refreshment", "Traditional Recipe"],
+    prepInfo: "Chilled and served over crushed ice.",
+    calories: "~240 kcal"
+  }
+];
+
+function getMenuData() {
+  try {
+    const stored = localStorage.getItem('the_grill_house_menu');
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
+    }
+  } catch (e) {
+    console.warn('Could not parse menu data from localStorage, falling back to defaults:', e);
+  }
+  return DEFAULT_MENU_DATA;
+}
+
+function saveMenuData(data) {
+  try {
+    localStorage.setItem('the_grill_house_menu', JSON.stringify(data));
+    window.MENU_DATA = data;
+    return true;
+  } catch (e) {
+    console.error('Failed to save menu data:', e);
+    return false;
+  }
+}
+
+function resetMenuData() {
+  try {
+    localStorage.removeItem('the_grill_house_menu');
+    window.MENU_DATA = DEFAULT_MENU_DATA;
+    return true;
+  } catch (e) {
+    console.error('Failed to reset menu data:', e);
+    return false;
+  }
+}
+
+// Global reference initialized from localStorage or default dataset
+var MENU_DATA = getMenuData();
+

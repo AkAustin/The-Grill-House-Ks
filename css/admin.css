@@ -1,0 +1,388 @@
+/* ==========================================
+   THE GRILL HOUSE KS - ADMIN DASHBOARD STYLES
+   ========================================== */
+
+.admin-header-banner {
+  background-color: var(--color-paper);
+  border-bottom: 1px solid var(--color-line);
+  padding: 24px 0;
+}
+
+.admin-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.admin-title-group h1 {
+  font-size: 1.8rem;
+  margin-bottom: 4px;
+}
+
+.admin-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-ink-soft);
+  margin: 0;
+}
+
+/* ---------- Admin Tab Controls ---------- */
+.admin-tabs-nav {
+  display: flex;
+  gap: 12px;
+  margin: 28px 0;
+  border-bottom: 2px solid var(--color-line);
+  padding-bottom: 2px;
+  overflow-x: auto;
+}
+
+.admin-tab-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-ink-soft);
+  padding: 10px 18px;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -4px;
+  white-space: nowrap;
+}
+
+.admin-tab-btn:hover {
+  color: var(--color-barn);
+}
+
+.admin-tab-btn.active {
+  color: var(--color-barn);
+  border-bottom-color: var(--color-barn);
+}
+
+/* ---------- Admin Layout Grid ---------- */
+.admin-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .admin-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.admin-card-box {
+  background-color: var(--color-cream-card);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 24px;
+}
+
+.admin-card-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-ink);
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ---------- Admin Dishes List Table ---------- */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.admin-table th {
+  text-align: left;
+  padding: 12px 14px;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-weight: 700;
+  border-bottom: 2px solid var(--color-line);
+}
+
+.admin-table tbody tr {
+  cursor: pointer;
+}
+
+.admin-table tbody tr:hover {
+  background-color: rgba(217, 164, 65, 0.12);
+}
+
+.admin-table td {
+  padding: 14px;
+  border-bottom: 1px solid var(--color-line);
+  vertical-align: middle;
+}
+
+.admin-dish-thumb {
+  width: 54px;
+  height: 54px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.admin-dish-info h4 {
+  margin: 0 0 4px 0;
+  font-size: 0.95rem;
+}
+
+.admin-dish-info p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-ink-soft);
+  max-width: 32ch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-actions-cell {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-icon {
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- Form Input Styling & Read-Only / Locked States ---------- */
+.admin-form-group {
+  margin-bottom: 16px;
+}
+
+.admin-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-ink);
+  margin-bottom: 6px;
+}
+
+.admin-input, .admin-select, .admin-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+}
+
+.admin-input:focus, .admin-select:focus, .admin-textarea:focus {
+  outline: none;
+  border-color: var(--color-barn);
+}
+
+.admin-input[readonly], 
+.admin-input:disabled,
+.admin-select[disabled], 
+.admin-textarea[readonly] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: var(--color-paper);
+  border-color: var(--color-line);
+}
+
+/* ---------- Form Lock Status Banner ---------- */
+.lock-status-banner {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.lock-status-banner.is-locked {
+  background-color: rgba(217, 164, 65, 0.18);
+  border: 1px solid var(--color-wheat);
+  color: var(--color-ink);
+}
+
+.lock-status-banner.is-editing {
+  background-color: rgba(139, 38, 26, 0.12);
+  border: 1px solid var(--color-barn);
+  color: var(--color-barn);
+}
+
+.lock-status-banner.is-new {
+  background-color: rgba(46, 125, 50, 0.12);
+  border: 1px solid var(--color-status-green);
+  color: var(--color-status-green);
+}
+
+/* ---------- Chip Input Container (Ingredients & Dietary) ---------- */
+.chips-field-wrap {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  background-color: var(--color-cream);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.chip-tag-item {
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-line);
+  color: var(--color-ink);
+  padding: 3px 10px;
+  border-radius: 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chip-tag-item .chip-remove-btn {
+  cursor: pointer;
+  color: var(--color-barn);
+  font-weight: 800;
+}
+
+.chip-input-field {
+  border: none;
+  background: transparent;
+  color: var(--color-ink);
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  outline: none;
+  flex: 1;
+  min-width: 120px;
+}
+
+/* ---------- Toast Notification ---------- */
+.toast-notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 200000;
+  background-color: #1E1B18;
+  color: #FFFFFF;
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transform: translateY(120%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease !important;
+}
+
+.toast-notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.toast-icon {
+  font-size: 1.2rem;
+}
+
+/* ---------- Admin Security Auth Modal ---------- */
+.admin-auth-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background-color: rgba(18, 15, 12, 0.92);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.admin-auth-card {
+  background-color: var(--color-cream-card);
+  border: 2px solid var(--color-barn);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  animation: authCardPop 0.3s ease;
+}
+
+@keyframes authCardPop {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.admin-auth-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.admin-auth-card h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-ink);
+  margin-bottom: 8px;
+}
+
+.admin-auth-card p {
+  font-size: 0.9rem;
+  color: var(--color-ink-soft);
+  margin-bottom: 24px;
+}
+
+.admin-auth-input {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.3rem;
+  letter-spacing: 6px;
+  text-align: center;
+  font-weight: 800;
+  border: 2px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  margin-bottom: 16px;
+}
+
+.admin-auth-input:focus {
+  outline: none;
+  border-color: var(--color-barn);
+  box-shadow: 0 0 0 3px rgba(168, 48, 20, 0.2);
+}
+
+.admin-auth-hint {
+  font-size: 0.8rem;
+  color: var(--color-wheat);
+  background-color: rgba(224, 154, 46, 0.15);
+  border: 1px solid var(--color-wheat);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  margin-bottom: 20px;
+}
+
+.admin-auth-error {
+  color: #D32F2F;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+  display: none;
+}
+

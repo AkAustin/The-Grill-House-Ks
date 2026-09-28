@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="The Grill House KS in Scott City, KS. Serving homemade American diner classics, Mexican specialties, hand-cut ribeye steaks, and breakfast all day!">
+  <title>The Grill House KS | Scott City, Kansas</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥩</text></svg>">
+
+  <!-- Open Graph & Social Link Preview Meta Tags -->
+  <meta property="og:title" content="The Grill House KS | Scott City, Kansas">
+  <meta property="og:description" content="Family-run grill in Scott City, KS serving hand-cut ribeye steaks, chorizo burritos, all-meat omelettes, and breakfast all day!">
+  <meta property="og:type" content="restaurant">
+  <meta property="og:url" content="https://thegrillhouseks.com/">
+  <meta property="og:image" content="images/handcut-ribeye.jpg">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Grill House KS | Scott City, Kansas">
+  <meta name="twitter:description" content="Homemade American diner classics & Mexican favorites served all day in Scott City, KS.">
+  <meta name="twitter:image" content="images/handcut-ribeye.jpg">
+
+  <!-- Schema.org LocalBusiness / Restaurant Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "The Grill House KS",
+    "image": "images/handcut-ribeye.jpg",
+    "telephone": "+1-620-909-2090",
+    "email": "thegrillhouseks@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "702 E 5th St (Inside Abarrotes La Favorita)",
+      "addressLocality": "Scott City",
+      "addressRegion": "KS",
+      "postalCode": "67871",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 38.4811,
+      "longitude": -100.9065
+    },
+    "url": "https://thegrillhouseks.com/",
+    "servesCuisine": ["American", "Mexican", "Breakfast", "Steakhouse"],
+    "priceRange": "$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.4",
+      "reviewCount": "305"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "06:00",
+        "closes": "21:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "07:00",
+        "closes": "20:00"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts - Inter for standard, clear, high-legibility typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Segmented CSS Modules -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+
+  <!-- Early Theme Initialization Script (Prevents FOUC) -->
+  <script src="js/theme-toggle.js"></script>
+</head>
+<body>
+
+  <!-- Accessibility Skip-to-Content Link -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+  <!-- Top Strip Bar with Dynamic Operating Hours -->
+  <div class="topstrip-bar">
+    <div class="wrap">
+      <div>
+        <span id="live-operating-status" class="topstrip-status status-open">● Open now <span class="topstrip-sep">·</span> Closes at 9:00 PM</span>
+        <span class="topstrip-sep">·</span>Breakfast Served All Day
+      </div>
+      <div>702 E 5th St, Scott City, KS 67871<span class="topstrip-sep">·</span><a class="topstrip-phone" href="tel:+16209092090">(620) 909-2090</a></div>
+    </div>
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="wrap">
+      <nav class="navbar">
+        <a href="#" class="brand-logo">THE GRILL <span>HOUSE KS</span></a>
+        <div class="nav-links">
+          <a href="index.html" class="active">Home</a>
+          <a href="menu.html">Full Menu</a>
+          <a href="reservations.html">Reservations</a>
+          <a href="about.html">Our Story</a>
+          <a href="contact.html">Location &amp; Hours</a>
+        </div>
+        <div class="nav-header-actions">
+          <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark theme">
+            <span class="theme-icon">☀️</span>
+            <span class="theme-label">Light</span>
+          </button>
+          <a class="btn btn-wheat" href="reservations.html" style="background-color:var(--color-wheat); color:var(--color-ink); border:none;">Reserve Table</a>
+          <a class="btn btn-barn" href="tel:+16209092090">Call Order</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Hero Pitch Banner -->
+  <main id="main-content">
+    <section class="hero-section">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="hero-eyebrow"><span class="live-dot"></span> OPEN TODAY &nbsp;·&nbsp; DINE-IN &amp; TAKEAWAY</div>
+          <h1 class="hero-title">Homemade plates, served all day, right in Scott City.</h1>
+          <p class="hero-lede">American diner classics next to Mexican-style favorites &mdash; chorizo potato burritos, all-meat omelettes, and hand-cut ribeye steaks &mdash; from a family kitchen that never stops serving breakfast.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="menu.html">See the menu</a>
+            <a class="btn btn-barn" href="about.html">About Us</a>
+            <!---
+            <button class="btn btn-ghost" onclick="openReservationModal()">Reserve a table</button>
+            --->
+            <a class="btn btn-ghost" href="#visit">Get directions</a>
+          </div>
+        </div>
+        <div class="ticket-box-perspective">
+          <div class="ticket-box">
+            <!-- Left stationary side -->
+            <div class="ticket-left-side">
+              <div class="ticket-stars">★★★★☆</div>
+              <div class="ticket-score">4.4</div>
+              <div class="ticket-sub">from 305 Google reviews</div>
+            </div>
+
+            <!-- Revealed Under Layer -->
+            <div class="ticket-under-layer">
+              <div class="ticket-under-badge">🔥 CHEF'S SPECIAL</div>
+              <div class="ticket-under-title">Smoked Chorizo &amp; Ribeye</div>
+              <p class="ticket-under-desc">Family recipe slow-cooked daily in Scott City.</p>
+              <div class="ticket-under-tag">100% Homemade</div>
+            </div>
+
+            <!-- 3D Book Page Flip (Right Half) -->
+            <div class="ticket-book-page">
+              <!-- Page Front -->
+              <div class="ticket-page-front">
+                <hr class="ticket-divider">
+                <div class="ticket-row"><span>Cuisine</span><b>American &amp; Mexican</b></div>
+                <div class="ticket-row"><span>Typical spend</span><b>$10&ndash;20 / person</b></div>
+                <div class="ticket-row"><span>Most praised</span><b>Steaks, breakfast</b></div>
+                <div class="ticket-page-corner-peel">📖 Flip Page</div>
+              </div>
+              <!-- Page Back -->
+              <div class="ticket-page-back">
+                <div class="ticket-back-spine"></div>
+                <div class="ticket-back-content">
+                  <div class="ticket-back-seal">GRILL HOUSE</div>
+                  <div class="ticket-back-sub">EST. SCOTT CITY, KS</div>
+                  <div class="ticket-back-note">Family Kitchen Since Day One</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Horizontal Food Presentation Showcase ("Turning Sideways" Dish Row) -->
+    <section class="food-showcase-section garnish-leaf-overlay" id="food-showcase">
+      <div class="wrap">
+        <div class="food-showcase-controls-header">
+          <div>
+            <span class="section-kicker">AUTHENTIC GRILL SPECIALTIES</span>
+            <h2>Fresh Dishes Made Daily</h2>
+            <p class="section-subtitle">Swipe sideways or click controls &mdash; crafted fresh for every appetite.</p>
+          </div>
+          <div class="food-showcase-controls">
+            <button class="btn tab-button" onclick="scrollFoodShowcase(-1)" aria-label="Previous Dish">◀ Prev</button>
+            <button class="btn tab-button active" onclick="scrollFoodShowcase(1)" aria-label="Next Dish">Next ▶</button>
+          </div>
+        </div>
+
+        <div class="food-card-row">
+
+          <!-- Food Card 1 -->
+          <div class="food-showcase-card">
+            <div>
+              <div class="menu-card-img-wrap">
+                <img class="menu-card-img" src="images/handcut-ribeye.jpg" alt="Hand-Cut 12oz Ribeye" loading="lazy">
+                <span class="badge badge-barn menu-card-badge-overlay">Most Popular</span>
+              </div>
+              <h3 class="food-card-title">Hand-Cut 12oz Ribeye</h3>
+              <div class="food-card-price">$22.95</div>
+              <p class="food-card-desc">Hand-selected ribeye grilled over open flame, served with two sides and dinner roll.</p>
+            </div>
+            <a class="btn btn-primary" href="tel:+16209092090">Order Ribeye</a>
+          </div>
+
+          <!-- Food Card 2 -->
+          <div class="food-showcase-card">
+            <div>
+              <div class="menu-card-img-wrap">
+                <img class="menu-card-img" src="images/chorizo-burrito.jpg" alt="Chorizo Potato Burrito" loading="lazy">
+                <span class="badge badge-barn menu-card-badge-overlay">Breakfast All Day</span>
+              </div>
+              <h3 class="food-card-title">Chorizo Potato Burrito</h3>
+              <div class="food-card-price">$11.50</div>
+              <p class="food-card-desc">Hearty spiced chorizo, golden potatoes, and scrambled eggs wrapped in a warm tortilla.</p>
+            </div>
+            <a class="btn btn-primary" href="tel:+16209092090">Order Burrito</a>
+          </div>
+
+          <!-- Food Card 3 -->
+          <div class="food-showcase-card">
+            <div>
+              <div class="menu-card-img-wrap">
+                <img class="menu-card-img" src="images/all-meat-omelette.jpg" alt="All-Meat Omelette" loading="lazy">
+                <span class="badge badge-barn menu-card-badge-overlay">Kitchen Favorite</span>
+              </div>
+              <h3 class="food-card-title">All-Meat Omelette</h3>
+              <div class="food-card-price">$13.95</div>
+              <p class="food-card-desc">Loaded with bacon, ham, sausage, melted cheddar cheese, crisp hash browns &amp; toast.</p>
+            </div>
+            <a class="btn btn-primary" href="tel:+16209092090">Order Omelette</a>
+          </div>
+
+          <!-- Food Card 4 -->
+          <div class="food-showcase-card">
+            <div>
+              <div class="menu-card-img-wrap">
+                <img class="menu-card-img" src="images/carne-asada-tacos.jpg" alt="Carne Asada Tacos" loading="lazy">
+                <span class="badge badge-barn menu-card-badge-overlay">Mexican Specialty</span>
+              </div>
+              <h3 class="food-card-title">Carne Asada Tacos</h3>
+              <div class="food-card-price">$12.95</div>
+              <p class="food-card-desc">Three grilled steak tacos on corn tortillas with fresh cilantro, diced onions, and salsa.</p>
+            </div>
+            <a class="btn btn-primary" href="tel:+16209092090">Order Tacos</a>
+          </div>
+
+          <!-- Food Card 5 -->
+          <div class="food-showcase-card">
+            <div>
+              <div class="menu-card-img-wrap">
+                <img class="menu-card-img" src="images/chicken-fried-steak.jpg" alt="Chicken Fried Steak" loading="lazy">
+                <span class="badge badge-barn menu-card-badge-overlay">Comfort Food</span>
+              </div>
+              <h3 class="food-card-title">Chicken Fried Steak</h3>
+              <div class="food-card-price">$14.95</div>
+              <p class="food-card-desc">Crispy fried beef steak smothered in rich country cream gravy with mashed potatoes.</p>
+            </div>
+            <a class="btn btn-primary" href="tel:+16209092090">Order Steak</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- At-a-Glance Info Bar with Specific Day-by-Day Hours -->
+    <div class="infobar-section">
+      <div class="wrap">
+        <div class="infobar-grid">
+          <div class="infobar-cell">
+            <div class="infobar-label">Weekly Hours</div>
+            <div class="infobar-value">
+              Mon&ndash;Sat: 6:00 AM &ndash; 9:00 PM
+              <small>Sun: 7:00 AM &ndash; 8:00 PM &middot; Breakfast served all day</small>
+            </div>
+          </div>
+          <div class="infobar-cell">
+            <div class="infobar-label">Where to find us</div>
+            <div class="infobar-value">702 E 5th St<small>Inside Abarrotes La Favorita, Scott City, KS</small></div>
+          </div>
+          <div class="infobar-cell">
+            <div class="infobar-label">Order &amp; visit</div>
+            <div class="infobar-value">Dine-in &amp; takeaway<small>Delivery not currently offered</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Real Verified Customer Reviews Section -->
+    <section class="reviews-section section-block garnish-herb-corner" id="about">
+      <div class="wrap">
+        <div class="food-showcase-controls-header" style="margin-bottom: 28px;">
+          <div>
+            <span class="section-kicker">REAL VERIFIED CUSTOMER REVIEWS</span>
+            <h2>What Diners Say About Us</h2>
+            <p class="section-subtitle">Scroll or swipe through real feedback from Google, Tripadvisor, and road trip travelers.</p>
+          </div>
+          <div class="food-showcase-controls" style="align-items: center; gap: 10px; flex-wrap: wrap;">
+            <button class="btn btn-barn" onclick="openReviewModal()" style="font-size:0.85rem; padding: 8px 16px;">✍️ Leave a Review</button>
+            <button class="btn tab-button" onclick="scrollReviewsSlider(-1)" aria-label="Previous Review">◀ Prev</button>
+            <button class="btn tab-button active" onclick="scrollReviewsSlider(1)" aria-label="Next Review">Next ▶</button>
+          </div>
+        </div>
+
+        <div class="reviews-slider-row" id="reviews-slider-container">
+
+          <div class="review-slider-card">
+            <div>
+              <div class="review-stars">★★★★★</div>
+              <p class="review-quote">"Stopped in on a spontaneous road trip through Scott City needing an oil change and laundromat nearby — and found The Grill House right around the corner. Spotless dining room, incredible home-style cooking, and hospitality that made us feel right at home!"</p>
+            </div>
+            <div>
+              <div class="review-author">Krys Boyer<small>Google Local Guide &middot; 10 reviews &middot; 13 photos</small></div>
+              <span class="badge" style="margin-top: 10px; font-size: 0.72rem;">Praising: Hand-Cut Steaks &amp; Breakfast</span>
+            </div>
+          </div>
+
+          <div class="review-slider-card">
+            <div>
+              <div class="review-stars">★★★★★</div>
+              <p class="review-quote">"A must-visit spot in Scott City, Kansas! The Country Fried Steak and hand-cut ribeye are cooked to perfection. Generous portions, fair prices, and friendly counter service."</p>
+            </div>
+            <div>
+              <div class="review-author">One Delightful Life<small>Verified Food &amp; Travel Reviewer</small></div>
+              <span class="badge" style="margin-top: 10px; font-size: 0.72rem;">Praising: Country Fried Steak</span>
+            </div>
+          </div>
+
+          <div class="review-slider-card">
+            <div>
+              <div class="review-stars">★★★★★</div>
+              <p class="review-quote">"Best breakfast in Scott City by far, and served all day! The chorizo potato burrito and all-meat omelette with hash browns are unmatched. Super clean atmosphere and attentive staff."</p>
+            </div>
+            <div>
+              <div class="review-author">Marcus T.<small>Google Local Guide &middot; 24 reviews</small></div>
+              <span class="badge" style="margin-top: 10px; font-size: 0.72rem;">Praising: Chorizo Burrito &amp; Hash Browns</span>
+            </div>
+          </div>
+
+          <div class="review-slider-card">
+            <div>
+              <div class="review-stars">★★★★★</div>
+              <p class="review-quote">"Great family diner on 5th Street. Generous plates of both Mexican specialties and classic American diner food. The carne asada tacos and hash browns are fantastic."</p>
+            </div>
+            <div>
+              <div class="review-author">Sarah &amp; Dan R.<small>Verified Road Trip Diners</small></div>
+              <span class="badge" style="margin-top: 10px; font-size: 0.72rem;">Praising: Carne Asada Tacos</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Full Menu Section (Pre-populated HTML Fallback for No-JS Visitors) -->
+    <section class="section-block" id="full-menu">
+      <div class="wrap">
+        <div class="section-title-group">
+          <span class="section-kicker">OUR FULL SELECTION</span>
+          <h2>Explore the Menu</h2>
+          <p>From breakfast favorites served all day to sizzled Mexican plates and hand-cut steaks.</p>
+        </div>
+
+        <!-- Instant Dish Search Input -->
+        <div class="menu-search-box">
+          <span class="menu-search-icon">🔍</span>
+          <input type="text" id="menu-search-input" class="menu-search-input" placeholder="Search dishes (e.g., steak, tacos, burrito, omelette)..." aria-label="Search menu items">
+        </div>
+
+        <!-- Menu Category Tabs -->
+        <div class="menu-tabs-container">
+          <button class="tab-button active" onclick="filterMenuCategory('all', this)">All Items</button>
+          <button class="tab-button" onclick="filterMenuCategory('breakfast', this)">Breakfast All Day</button>
+          <button class="tab-button" onclick="filterMenuCategory('mexican', this)">Mexican Favorites</button>
+          <button class="tab-button" onclick="filterMenuCategory('american', this)">American Diners</button>
+          <button class="tab-button" onclick="filterMenuCategory('steaks', this)">Steaks &amp; Dinners</button>
+        </div>
+
+        <!-- Menu Grid Container (Pre-populated HTML fallback for No-JS compatibility) -->
+        <div class="menu-grid-layout" id="menu-grid-container">
+
+          <div class="menu-card-item" data-category="breakfast">
+            <div class="menu-card-img-wrap">
+              <img class="menu-card-img" src="images/chorizo-burrito.jpg" alt="Chorizo Potato Burrito" loading="lazy">
+              <span class="badge badge-barn menu-card-badge-overlay">Breakfast Favorite</span>
+            </div>
+            <div class="menu-card-top">
+              <h3 class="menu-card-name">Chorizo Potato Burrito</h3>
+              <span class="menu-card-price">$11.50</span>
+            </div>
+            <p class="menu-card-body">Spiced chorizo, seasoned potatoes, fluffy scrambled eggs, wrapped in a warm flour tortilla.</p>
+            <div class="location-actions">
+              <a class="btn btn-primary" href="tel:+16209092090">Order Dish</a>
+            </div>
+          </div>
+
+          <div class="menu-card-item" data-category="breakfast">
+            <div class="menu-card-img-wrap">
+              <img class="menu-card-img" src="images/all-meat-omelette.jpg" alt="All-Meat Omelette" loading="lazy">
+              <span class="badge badge-barn menu-card-badge-overlay">Kitchen Classic</span>
+            </div>
+            <div class="menu-card-top">
+              <h3 class="menu-card-name">All-Meat Omelette</h3>
+              <span class="menu-card-price">$13.95</span>
+            </div>
+            <p class="menu-card-body">Loaded with bacon, ham, sausage, and cheddar cheese. Served with crispy hash browns &amp; toast.</p>
+            <div class="location-actions">
+              <a class="btn btn-primary" href="tel:+16209092090">Order Dish</a>
+            </div>
+          </div>
+
+          <div class="menu-card-item" data-category="steaks">
+            <div class="menu-card-img-wrap">
+              <img class="menu-card-img" src="images/handcut-ribeye.jpg" alt="Hand-Cut 12oz Ribeye" loading="lazy">
+              <span class="badge badge-barn menu-card-badge-overlay">Most Mentioned Dish</span>
+            </div>
+            <div class="menu-card-top">
+              <h3 class="menu-card-name">Hand-Cut 12oz Ribeye</h3>
+              <span class="menu-card-price">$22.95</span>
+            </div>
+            <p class="menu-card-body">Hand-selected ribeye steak grilled over open flame, served with choice of two sides and dinner roll.</p>
+            <div class="location-actions">
+              <a class="btn btn-primary" href="tel:+16209092090">Order Dish</a>
+            </div>
+          </div>
+
+          <div class="menu-card-item" data-category="mexican">
+            <div class="menu-card-img-wrap">
+              <img class="menu-card-img" src="images/carne-asada-tacos.jpg" alt="Carne Asada Tacos (3)" loading="lazy">
+              <span class="badge badge-barn menu-card-badge-overlay">Top Seller</span>
+            </div>
+            <div class="menu-card-top">
+              <h3 class="menu-card-name">Carne Asada Tacos (3)</h3>
+              <span class="menu-card-price">$12.95</span>
+            </div>
+            <p class="menu-card-body">Grilled steak on warm corn tortillas topped with fresh cilantro, chopped onions, and house salsa.</p>
+            <div class="location-actions">
+              <a class="btn btn-primary" href="tel:+16209092090">Order Dish</a>
+            </div>
+          </div>
+
+          <div class="menu-card-item" data-category="american">
+            <div class="menu-card-img-wrap">
+              <img class="menu-card-img" src="images/chicken-fried-steak.jpg" alt="Chicken Fried Steak" loading="lazy">
+              <span class="badge badge-barn menu-card-badge-overlay">Comfort Food</span>
+            </div>
+            <div class="menu-card-top">
+              <h3 class="menu-card-name">Chicken Fried Steak</h3>
+              <span class="menu-card-price">$14.95</span>
+            </div>
+            <p class="menu-card-body">Tender beef steak fried crisp, smothered in rich country cream gravy, served with mashed potatoes.</p>
+            <div class="location-actions">
+              <a class="btn btn-primary" href="tel:+16209092090">Order Dish</a>
+            </div>
+          </div>
+
+          <div class="menu-card-item" data-category="breakfast">
+            <div class="menu-card-img-wrap">
+              <img class="menu-card-img" src="images/classic-pancakes.jpg" alt="Classic Pancake Stack" loading="lazy">
+              <span class="badge badge-barn menu-card-badge-overlay">All-Day Classic</span>
+            </div>
+            <div class="menu-card-top">
+              <h3 class="menu-card-name">Classic Pancake Stack</h3>
+              <span class="menu-card-price">$9.25</span>
+            </div>
+            <p class="menu-card-body">Three golden buttermilk pancakes served with whipped butter and warm maple syrup.</p>
+            <div class="location-actions">
+              <a class="btn btn-primary" href="tel:+16209092090">Order Dish</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Options Banner -->
+    <section class="service-banner section-block garnish-leaf-overlay">
+      <div class="wrap service-banner-wrap">
+        <div>
+          <h2 class="service-banner-heading">Built for a quick counter order or a sit-down plate.</h2>
+          <p class="service-banner-lede">The Grill House keeps it simple: come sit down, or call ahead and grab it to go.</p>
+        </div>
+        <div class="service-banner-card">
+          <div class="service-item-check">✔ Dine-in seating available</div>
+          <div class="service-item-check">✔ Takeaway &amp; Call-ahead orders</div>
+          <div class="service-item-cross">✖ Delivery (Not currently offered)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frequently Asked Questions / Diner Need-to-Know -->
+    <section class="section-block" style="background-color: var(--color-cream-card);">
+      <div class="wrap">
+        <div class="section-title-group">
+          <span class="section-kicker">GOOD TO KNOW</span>
+          <h2>Frequently Asked Questions</h2>
+          <p>Everything you need to know before visiting or calling in your order.</p>
+        </div>
+        <div class="faq-grid">
+          <div class="faq-card">
+            <div class="faq-question">Is breakfast really served all day?</div>
+            <p class="faq-answer">Yes! Our family kitchen serves all breakfast items — including our famous chorizo potato burritos, country skillets, and omelettes — from opening until close every day.</p>
+          </div>
+          <div class="faq-card">
+            <div class="faq-question">Where are you located in Scott City?</div>
+            <p class="faq-answer">We are located on East 5th Street inside <em>Abarrotes La Favorita</em> (702 E 5th St, Scott City, KS 67871), with convenient parking right outside.</p>
+          </div>
+          <div class="faq-card">
+            <div class="faq-question">Do I need a table reservation?</div>
+            <p class="faq-answer">Walk-ins are always welcome! However, for groups of 6 or more, we recommend calling ahead at (620) 909-2090 or reserving online to guarantee seating.</p>
+          </div>
+          <div class="faq-card">
+            <div class="faq-question">What payment methods do you accept?</div>
+            <p class="faq-answer">We accept cash, Visa, MasterCard, Discover, and American Express. Paying cash is also welcomed by our local counter team!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location & Embedded Google Map -->
+    <section class="location-section section-block garnish-herb-corner" id="visit">
+      <div class="wrap location-grid">
+        <div>
+          <div class="section-title-group">
+            <span class="section-kicker">FIND US IN SCOTT CITY</span>
+            <h2>Stop by or Call Ahead</h2>
+            <p>Located on East 5th Street inside <em>Abarrotes La Favorita</em>.</p>
+          </div>
+          <p><strong>Address:</strong><br>702 E 5th St, Scott City, KS 67871</p>
+          <p><strong>Phone:</strong><br><a href="tel:+16209092090" class="location-phone-link">(620) 909-2090</a></p>
+          <p><strong>Email:</strong><br><a href="mailto:thegrillhouseks@gmail.com" class="location-email-link">thegrillhouseks@gmail.com</a></p>
+          <div class="location-actions">
+            <a class="btn btn-barn" href="https://maps.google.com/?q=702+E+5th+St,+Scott+City,+KS+67871" target="_blank" rel="noopener">Open in Google Maps</a>
+          </div>
+        </div>
+        <div class="map-frame-box">
+          <iframe title="Location map for The Grill House KS" src="https://maps.google.com/maps?q=702%20E%205th%20St,%20Scott%20City,%20KS%2067871&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">The Grill House KS</div>
+          <p>A family-run American &amp; Mexican grill on East 5th Street in Scott City, Kansas &mdash; serving breakfast all day, every day.</p>
+        </div>
+        <div>
+          <h4>Operating Hours</h4>
+          <p>
+            <strong>Mon&ndash;Sat:</strong> 6:00 AM &ndash; 9:00 PM<br>
+            <strong>Sunday:</strong> 7:00 AM &ndash; 8:00 PM<br>
+            <em>Breakfast served all day</em>
+          </p>
+          <p class="location-actions">
+            <a href="tel:+16209092090">(620) 909-2090</a><br>
+            <a href="mailto:thegrillhouseks@gmail.com">thegrillhouseks@gmail.com</a>
+          </p>
+        </div>
+        <div>
+          <h4>Location &amp; Service</h4>
+          <p>702 E 5th St<br>Scott City, KS 67871<br>Inside Abarrotes La Favorita</p>
+          <p class="location-actions">Dine-in &amp; Takeaway available.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; The Grill House KS &middot; Scott City, Kansas</span>
+        <span>Client Pitch Presentation Website &middot; <a href="admin.html" style="color:var(--color-wheat); text-decoration:underline;">🔐 Admin Portal</a></span>
+      
+  </footer>
+
+  <!-- Floating Scroll-Driven Moving Meal Widget -->
+  <div class="moving-meal-container" id="moving-meal-widget">
+    <img class="moving-meal-avatar" src="images/handcut-ribeye.jpg" alt="Hand-Cut 12oz Ribeye">
+    <div class="moving-meal-info">
+      <span class="moving-meal-title">Hand-Cut 12oz Ribeye</span>
+      <span class="moving-meal-sub">Most Praised Meal &middot; <a href="tel:+16209092090" style="color:var(--color-wheat); font-weight:700; text-decoration:underline;">Call to Order</a></span>
+    </div>
+  </div>
+
+  <!-- Table Reservation Modal -->
+  <div class="modal-backdrop" id="reservation-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 style="margin:0;">Reserve a Table</h3>
+        <button class="modal-close-btn" onclick="closeReservationModal()" aria-label="Close modal">&times;</button>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--color-ink-soft); margin-bottom: 20px;">Book a table at The Grill House KS in Scott City. We will call to confirm your table!</p>
+      <form id="reservation-form">
+        <div class="form-group">
+          <label class="form-label" for="res-name">Your Full Name</label>
+          <input type="text" id="res-name" class="form-input" placeholder="e.g. John Miller" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="res-phone">Phone Number</label>
+          <input type="tel" id="res-phone" class="form-input" placeholder="(620) 000-0000" required>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+          <div class="form-group">
+            <label class="form-label" for="res-guests">Guests</label>
+            <select id="res-guests" class="form-select">
+              <option value="1">1 Person</option>
+              <option value="2" selected>2 People</option>
+              <option value="3">3 People</option>
+              <option value="4">4 People</option>
+              <option value="5">5 People</option>
+              <option value="6+">6+ (Group)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="res-date">Date</label>
+            <input type="date" id="res-date" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="res-time">Time</label>
+            <input type="time" id="res-time" class="form-input" required>
+          </div>
+        </div>
+        <div style="margin-top: 20px; display: flex; gap: 12px;">
+          <button type="submit" class="btn btn-barn" style="flex:1;">Submit Reservation</button>
+          <button type="button" class="btn btn-ghost" onclick="closeReservationModal()" style="color:var(--color-ink);">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Customer Review Submission Modal -->
+  <div class="modal-backdrop" id="customer-review-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 style="margin:0;">✍️ Leave a Customer Review</h3>
+        <button class="modal-close-btn" onclick="closeReviewModal()" aria-label="Close modal">&times;</button>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--color-ink-soft); margin-bottom: 20px;">Share your dining experience at The Grill House KS! Your review will be submitted to store management for verification.</p>
+      <form id="customer-review-form">
+        <div class="form-group">
+          <label class="form-label" for="cust-rev-name">Your Full Name *</label>
+          <input type="text" id="cust-rev-name" class="form-input" placeholder="e.g. Elena Martinez" required>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div class="form-group">
+            <label class="form-label" for="cust-rev-role">Role / Location Tag</label>
+            <input type="text" id="cust-rev-role" class="form-input" placeholder="Scott City Resident">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cust-rev-rating">Star Rating</label>
+            <select id="cust-rev-rating" class="form-select">
+              <option value="★★★★★" selected>★★★★★ (5 Stars)</option>
+              <option value="★★★★☆">★★★★☆ (4 Stars)</option>
+              <option value="★★★☆☆">★★★☆☆ (3 Stars)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cust-rev-dish">Praised Meal / Dish</label>
+          <input type="text" id="cust-rev-dish" class="form-input" placeholder="e.g. Hand-Cut Ribeye & Hash Browns">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cust-rev-quote">Your Review &amp; Feedback *</label>
+          <textarea id="cust-rev-quote" class="form-input" rows="3" placeholder="Tell us what you enjoyed about your food and visit..." required></textarea>
+        </div>
+        <div style="margin-top: 20px; display: flex; gap: 12px;">
+          <button type="submit" class="btn btn-barn" style="flex:1;">Submit Review for Approval</button>
+          <button type="button" class="btn btn-ghost" onclick="closeReviewModal()" style="color:var(--color-ink);">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Interactive Dish Product Detail Modal / Landing View -->
+  <div class="product-modal-backdrop" id="product-detail-modal" aria-hidden="true" role="dialog">
+    <!-- Rising & Spreading Grill Smoke Whisks Overlay -->
+    <div class="product-modal-smoke-overlay" aria-hidden="true">
+      <div class="smoke-stream smoke-stream-left">
+        <div class="smoke-puff p1"></div>
+        <div class="smoke-puff p2"></div>
+        <div class="smoke-puff p3"></div>
+        <div class="smoke-puff p4"></div>
+      </div>
+      <div class="smoke-stream smoke-stream-right">
+        <div class="smoke-puff p1"></div>
+        <div class="smoke-puff p2"></div>
+        <div class="smoke-puff p3"></div>
+        <div class="smoke-puff p4"></div>
+      </div>
+    </div>
+
+    <div class="product-modal-box">
+      <button class="product-modal-close-btn" id="product-modal-close" aria-label="Close product details">&times;</button>
+      
+      <div class="product-modal-grid">
+        <!-- Dish Media / Hero Column -->
+        <div class="product-modal-media">
+          <img id="pm-image" src="" alt="Dish image" class="product-modal-img">
+          <span id="pm-badge" class="badge badge-barn product-modal-badge"></span>
+        </div>
+        
+        <!-- Dish Product Info Column -->
+        <div class="product-modal-content">
+          <div class="product-modal-header">
+            <span id="pm-category" class="product-modal-cat-tag"></span>
+            <h2 id="pm-title" class="product-modal-title"></h2>
+            <div id="pm-price" class="product-modal-price"></div>
+          </div>
+          
+          <p id="pm-description" class="product-modal-desc"></p>
+
+          <!-- Preparation & Caloric Info Bar -->
+          <div class="product-specs-bar">
+            <div class="product-spec-item">
+              <span class="product-spec-label">Caloric Est.</span>
+              <span id="pm-calories" class="product-spec-val"></span>
+            </div>
+            <div class="product-spec-item">
+              <span class="product-spec-label">Kitchen Prep</span>
+              <span id="pm-prep" class="product-spec-val"></span>
+            </div>
+          </div>
+
+          <!-- Ingredients Used Section -->
+          <div class="product-section-block">
+            <h4 class="product-section-heading">🌿 Fresh Ingredients Used</h4>
+            <div id="pm-ingredients" class="product-ingredients-list"></div>
+          </div>
+
+          <!-- Dietary & Allergen Badges -->
+          <div class="product-section-block">
+            <h4 class="product-section-heading">🏷️ Dietary Profile</h4>
+            <div id="pm-dietary" class="product-dietary-list"></div>
+          </div>
+
+          <!-- Action CTAs -->
+          <div class="product-modal-actions">
+            <a id="pm-call-btn" class="btn btn-barn" href="tel:+16209092090"><span>📞</span> Call to Order</a>
+            <button id="pm-reserve-btn" class="btn btn-primary" type="button"><span>📅</span> Reserve Table</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Segmented JavaScript Modules -->
+  <script src="js/menu-data.js"></script>
+  <script src="js/reviews-data.js"></script>
+  <script src="js/hours.js"></script>
+  <script src="js/menu-filter.js"></script>
+  <script src="js/reviews-render.js"></script>
+  <script src="js/menu-scroll-arrange.js"></script>
+  <script src="js/scroll-meal.js"></script>
+  <script src="js/sprinkled-herbs.js"></script>
+  <script src="js/reservation-modal.js"></script>
+  <script src="js/product-modal.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Reserve a table at The Grill House KS in Scott City, KS. Book your table for breakfast, lunch, or dinner online.">
+  <title>Table Reservations | The Grill House KS - Scott City, Kansas</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥩</text></svg>">
+
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Segmented CSS Modules -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+
+  <!-- Early Theme Initialization Script -->
+  <script src="js/theme-toggle.js"></script>
+</head>
+<body>
+
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to reservation content</a>
+
+  <!-- Top Strip Bar -->
+  <div class="topstrip-bar">
+    <div class="wrap">
+      <div>
+        <span id="live-operating-status" class="topstrip-status status-open">● Open now <span class="topstrip-sep">·</span> Closes at 9:00 PM</span>
+        <span class="topstrip-sep">·</span>Breakfast Served All Day
+      </div>
+      <div>702 E 5th St, Scott City, KS 67871<span class="topstrip-sep">·</span><a class="topstrip-phone" href="tel:+16209092090">(620) 909-2090</a></div>
+    </div>
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="wrap">
+      <nav class="navbar">
+        <a href="index.html" class="brand-logo">THE GRILL <span>HOUSE KS</span></a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="menu.html">Full Menu</a>
+          <a href="reservations.html" class="active" aria-current="page">Reservations</a>
+          <a href="about.html">Our Story</a>
+          <a href="contact.html">Location &amp; Hours</a>
+        </div>
+        <div class="nav-header-actions">
+          <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark theme">
+            <span class="theme-icon">☀️</span>
+            <span class="theme-label">Light</span>
+          </button>
+          <a class="btn btn-barn" href="tel:+16209092090">Call Order</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    
+    <!-- Hero Section -->
+    <section class="page-hero-banner">
+      <div class="wrap">
+        <span class="badge badge-barn" style="font-size: 0.85rem; margin-bottom: 14px; display: inline-block;">SCOTT CITY DINING</span>
+        <h1>Reserve Your Table Online</h1>
+        <p>Join us for breakfast, lunch, or dinner. Secure your spot in advance or call us directly for immediate seating availability.</p>
+      </div>
+    </section>
+
+    <!-- Main Booking Layout Grid with Dining Tables Background -->
+    <section class="reservation-booking-section">
+      <div class="wrap">
+        <div class="responsive-sidebar-grid">
+        
+        <!-- Left Column: Interactive Form -->
+        <div style="background-color: var(--color-cream-card); border: 1px solid var(--color-line); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-card);">
+          
+          <div id="booking-form-wrap">
+            <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--color-ink); margin-bottom: 20px;">Book a Dining Experience</h2>
+            
+            <form id="dedicated-reservation-form" onsubmit="handleDedicatedReservation(event)">
+              
+              <!-- Step 1: Date, Time & Party -->
+              <div style="margin-bottom: 24px;">
+                <h3 style="font-size: 1rem; font-weight: 700; color: var(--color-barn); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">1. Date &amp; Party Size</h3>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+                  <div>
+                    <label style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 6px;">Reservation Date</label>
+                    <input type="date" id="d-res-date" required style="width: 100%; padding: 12px; border: 1px solid var(--color-line); border-radius: var(--radius-md); background: var(--color-paper); color: var(--color-ink); font-family: var(--font-main);">
+                  </div>
+
+                  <div>
+                    <label style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 6px;">Preferred Time</label>
+                    <select id="d-res-time" required style="width: 100%; padding: 12px; border: 1px solid var(--color-line); border-radius: var(--radius-md); background: var(--color-paper); color: var(--color-ink); font-family: var(--font-main);">
+                      <option value="06:30 AM">6:30 AM (Breakfast)</option>
+                      <option value="08:00 AM">8:00 AM (Breakfast)</option>
+                      <option value="10:00 AM">10:00 AM (Breakfast/Brunch)</option>
+                      <option value="11:30 AM" selected>11:30 AM (Lunch)</option>
+                      <option value="01:00 PM">1:00 PM (Lunch)</option>
+                      <option value="05:30 PM">5:30 PM (Dinner)</option>
+                      <option value="07:00 PM">7:00 PM (Dinner)</option>
+                      <option value="08:00 PM">8:00 PM (Dinner)</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 6px;">Party Size</label>
+                    <select id="d-res-guests" required style="width: 100%; padding: 12px; border: 1px solid var(--color-line); border-radius: var(--radius-md); background: var(--color-paper); color: var(--color-ink); font-family: var(--font-main);">
+                      <option value="1 Guest">1 Guest</option>
+                      <option value="2 Guests" selected>2 Guests</option>
+                      <option value="3 Guests">3 Guests</option>
+                      <option value="4 Guests">4 Guests</option>
+                      <option value="5-6 Guests">5 - 6 Guests</option>
+                      <option value="7-10 Guests">7 - 10 Guests (Large Table)</option>
+                      <option value="12+ Party">12+ Private Event</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 2: Seating Preference & Occasion -->
+              <div style="margin-bottom: 24px;">
+                <h3 style="font-size: 1rem; font-weight: 700; color: var(--color-barn); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">2. Seating &amp; Occasion</h3>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                  <div>
+                    <label style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 6px;">Seating Area</label>
+                    <select id="d-res-seating" style="width: 100%; padding: 12px; border: 1px solid var(--color-line); border-radius: var(--radius-md); background: var(--color-paper); color: var(--color-ink); font-family: var(--font-main);">
+                      <option value="Main Dining Room">Main Dining Room</option>
+                      <option value="Outdoor Patio">Outdoor Patio (Weather Permitting)</option>
+                      <option value="Cozy Leather Booth">Cozy Leather Booth</option>
+                      <option value="Bar Counter Top">Bar Counter Top</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 6px;">Occasion Tag</label>
+                    <select id="d-res-occasion" style="width: 100%; padding: 12px; border: 1px solid var(--color-line); border-radius: var(--radius-md); background: var(--color-paper); color: var(--color-ink); font-family: var(--font-main);">
+                      <option value="Casual Meal">Casual Dining</option>
+                      <option value="Birthday Celebration">Birthday Celebration</option>
+                      <option value="Anniversary">Anniversary</option>
+                      <option value="Business Meeting">Business Lunch / Dinner</option>
+                      <option value="Family Gathering">Family Gathering</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 3: Guest Information -->
+              <div style="margin-bottom: 24px;">
+                <h3 style="font-size: 1rem; font-weight: 700; color: var(--color-barn); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">3. Contact Information</h3>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+                  <div>
+                    <label style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 6px;">Full Name</label>
+                    <input type="text" id="d-res-name" placeholder="Jane Smith" required style="width: 100%; padding: 12px; border: 1px solid var(--color-line); border-radius: var(--radius-md); background: var(--color-paper); color: var(--color-ink); font-family: var(--font-main);">
+                  </div>
+
+                  <div>
+                    <label style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 6px;">Phone Number (For Confirmation SMS/Call)</label>
+                    <input type="tel" id="d-res-phone" placeholder="(620) 909-2090" required style="width: 100%; padding: 12px; border: 1px solid var(--color-line); border-radius: var(--radius-md); background: var(--color-paper); color: var(--color-ink); font-family: var(--font-main);">
+                  </div>
+                </div>
+
+                <div style="margin-bottom: 16px;">
+                  <label style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 6px;">Email Address (Optional)</label>
+                  <input type="email" id="d-res-email" placeholder="jane@example.com" style="width: 100%; padding: 12px; border: 1px solid var(--color-line); border-radius: var(--radius-md); background: var(--color-paper); color: var(--color-ink); font-family: var(--font-main);">
+                </div>
+
+                <div>
+                  <label style="font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 6px;">Special Dietary Requirements or High-Chair Requests</label>
+                  <textarea id="d-res-notes" rows="3" placeholder="e.g. Need high chair, gluten-free diner in party, celebrating 30th birthday..." style="width: 100%; padding: 12px; border: 1px solid var(--color-line); border-radius: var(--radius-md); background: var(--color-paper); color: var(--color-ink); font-family: var(--font-main); resize: vertical;"></textarea>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-barn" style="width: 100%; font-size: 1.1rem; padding: 16px;">Complete Table Reservation</button>
+            </form>
+          </div>
+
+          <!-- Success Confirmation Card (Hidden by default) -->
+          <div id="booking-success-card" style="display: none; text-align: center; padding: 32px 16px;">
+            <div style="font-size: 3.5rem; margin-bottom: 12px;">🎉</div>
+            <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--color-ink); margin-bottom: 8px;">Reservation Confirmed!</h2>
+            <p style="font-size: 1rem; color: var(--color-ink-soft); margin-bottom: 24px;">We are excited to host you at <strong>The Grill House KS</strong>!</p>
+            
+            <div style="background-color: var(--color-paper); border: 2px dashed var(--color-wheat); border-radius: var(--radius-md); padding: 20px; text-align: left; max-width: 480px; margin: 0 auto 24px auto;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                <span style="font-size: 0.85rem; color: var(--color-ink-soft);">BOOKING REF:</span>
+                <strong id="res-conf-id" style="font-family: monospace; font-size: 1.1rem; color: var(--color-barn);">#GRILL-8492</strong>
+              </div>
+              <div style="margin-bottom: 6px;"><strong>Guest Name:</strong> <span id="res-conf-name">Jane Smith</span></div>
+              <div style="margin-bottom: 6px;"><strong>Date &amp; Time:</strong> <span id="res-conf-datetime">Today @ 5:30 PM</span></div>
+              <div style="margin-bottom: 6px;"><strong>Party Size:</strong> <span id="res-conf-guests">2 Guests</span></div>
+              <div><strong>Seating Area:</strong> <span id="res-conf-seating">Main Dining Room</span></div>
+            </div>
+
+            <p style="font-size: 0.9rem; color: var(--color-ink-soft); margin-bottom: 24px;">Need to modify your table booking? Call us anytime at <strong>(620) 909-2090</strong>.</p>
+            
+            <button type="button" class="btn btn-primary" onclick="resetReservationForm()">Book Another Table</button>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Reservation Policies & Direct Call Card -->
+        <div>
+          <div style="background-color: var(--color-paper); border: 1px solid var(--color-line); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px;">
+            <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--color-ink); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+              <span>📞</span> Prefer Phone Reservations?
+            </h3>
+            <p style="font-size: 0.9rem; color: var(--color-ink-soft); margin-bottom: 16px;">For immediate same-day seating or large party bookings over 10 guests, call our floor manager directly.</p>
+            <a class="btn btn-barn" href="tel:+16209092090" style="width: 100%; text-align: center; font-size: 1rem; padding: 12px;">Call (620) 909-2090</a>
+          </div>
+
+          <div style="background-color: var(--color-cream-card); border: 1px solid var(--color-line); border-radius: var(--radius-lg); padding: 24px;">
+            <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--color-ink); margin-bottom: 16px;">Reservation Guidelines</h3>
+            
+            <ul style="list-style: none; padding: 0; font-size: 0.9rem; color: var(--color-ink-soft); line-height: 1.7;">
+              <li style="margin-bottom: 12px; display: flex; gap: 10px;">
+                <span>⏱️</span>
+                <div><strong>15-Minute Grace Period:</strong> We hold tables for 15 minutes past your reserved time before offering to waiting guests.</div>
+              </li>
+              <li style="margin-bottom: 12px; display: flex; gap: 10px;">
+                <span>🍳</span>
+                <div><strong>Breakfast Served All Day:</strong> You can order from our full breakfast menu regardless of your reservation time slot!</div>
+              </li>
+              <li style="margin-bottom: 12px; display: flex; gap: 10px;">
+                <span>📍</span>
+                <div><strong>Location:</strong> 702 E 5th St, Scott City, KS 67871 (Inside Abarrotes La Favorita).</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <div class="brand-logo" style="margin-bottom: 12px;">THE GRILL <span>HOUSE KS</span></div>
+        <p>Serving homemade American diner classics, Mexican specialties, and hand-cut steaks in Scott City, Kansas.</p>
+        <p style="margin-top: 12px;">📍 702 E 5th St (Inside Abarrotes La Favorita), Scott City, KS 67871</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="index.html">Home Landing</a></li>
+          <li><a href="menu.html">Full Interactive Menu</a></li>
+          <li><a href="reservations.html" class="active-footer-link">Reserve a Table</a></li>
+          <li><a href="about.html">Our Story &amp; Heritage</a></li>
+          <li><a href="contact.html">Contact &amp; Location</a></li>
+          <li><a href="admin.html" style="text-decoration: underline;">Manager Login 🔒</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Hours &amp; Contact</h4>
+        <p style="margin-bottom: 6px;"><strong>Mon &ndash; Sat:</strong> 6:00 AM &ndash; 9:00 PM</p>
+        <p style="margin-bottom: 16px;"><strong>Sunday:</strong> 7:00 AM &ndash; 8:00 PM</p>
+        <p style="font-size: 1.1rem; font-weight: 800; color: #F4C463;">📞 <a href="tel:+16209092090" style="color: inherit; text-decoration: none;">(620) 909-2090</a></p>
+      </div>
+    </div>
+    
+    <div class="footer-copyright">
+      &copy; 2026 The Grill House KS. All rights reserved. Handcrafted in Scott City, Kansas.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/hours.js"></script>
+  <script src="js/sprinkled-herbs.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dateInput = document.getElementById('d-res-date');
+      if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+        dateInput.value = today;
+      }
+    });
+
+    function handleDedicatedReservation(e) {
+      e.preventDefault();
+      const name = document.getElementById('d-res-name').value;
+      const phone = document.getElementById('d-res-phone').value;
+      const date = document.getElementById('d-res-date').value;
+      const time = document.getElementById('d-res-time').value;
+      const guests = document.getElementById('d-res-guests').value;
+      const seating = document.getElementById('d-res-seating').value;
+
+      const randomRef = '#GRILL-' + Math.floor(1000 + Math.random() * 9000);
+
+      document.getElementById('res-conf-id').textContent = randomRef;
+      document.getElementById('res-conf-name').textContent = name;
+      document.getElementById('res-conf-datetime').textContent = `${date} @ ${time}`;
+      document.getElementById('res-conf-guests').textContent = guests;
+      document.getElementById('res-conf-seating').textContent = seating;
+
+      document.getElementById('booking-form-wrap').style.display = 'none';
+      document.getElementById('booking-success-card').style.display = 'block';
+    }
+
+    function resetReservationForm() {
+      document.getElementById('dedicated-reservation-form').reset();
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('d-res-date').value = today;
+      document.getElementById('booking-form-wrap').style.display = 'block';
+      document.getElementById('booking-success-card').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

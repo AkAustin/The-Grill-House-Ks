@@ -1,0 +1,52 @@
+/* ==========================================
+   THE GRILL HOUSE KS - DESIGN VARIABLES & THEME TOKENS
+   ========================================== */
+:root {
+  /* Color Palette - Light Mode (Warm, Organic Matte Tones) */
+  --color-ink: #1E1B18;
+  --color-ink-soft: #453C35;
+  --color-barn: #8B2E1F;
+  --color-barn-deep: #6E2216;
+  --color-wheat: #D9A441;
+  --color-wheat-deep: #B9862F;
+  --color-cream: #FAF6EE;
+  --color-cream-card: #FFFFFF;
+  --color-sage: #57624A;
+  --color-sage-deep: #3F4735;
+  --color-paper: #F3E9D6;
+  --color-line: #D9CDB8;
+  --color-status-green: #2E7D32;
+  --color-badge-bg: #F0E6D2;
+
+  /* Typography - Standard, High Legibility Sans-Serif Stack */
+  --font-main: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Layout & Spacing - Fluid Desktop to Mobile */
+  --wrap-max-width: 1580px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Shadows - Matte Flat Depth */
+  --shadow-card: 0 4px 12px rgba(30, 27, 24, 0.08);
+  --shadow-ticket: 0 10px 25px rgba(30, 27, 24, 0.25);
+}
+
+/* Dark Theme Overrides - High Contrast Professional Dark Mode */
+[data-theme="dark"] {
+  --color-ink: #F5EFE6;
+  --color-ink-soft: #D2C5B4;
+  --color-barn: #E5533D;
+  --color-barn-deep: #C93E2B;
+  --color-wheat: #E6B655;
+  --color-wheat-deep: #C79538;
+  --color-cream: #141210;
+  --color-cream-card: #1F1C18;
+  --color-paper: #2A2520;
+  --color-line: #3D352D;
+  --color-badge-bg: #352E26;
+  --color-status-green: #4CAF50;
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-ticket: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
